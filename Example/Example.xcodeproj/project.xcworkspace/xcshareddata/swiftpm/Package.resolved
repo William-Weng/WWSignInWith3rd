@@ -1,0 +1,52 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "WWSignInWith3rd",
+        "repositoryURL": "https://github.com/William-Weng/_WWNetworking.git",
+        "state": {
+          "branch": null,
+          "revision": "06009613c0af431152563102c585681f6490bc17",
+          "version": "2.3.0"
+        }
+      },
+      {
+        "package": "LineSDK",
+        "repositoryURL": "https://github.com/line/line-sdk-ios-swift.git",
+        "state": {
+          "branch": null,
+          "revision": "2788da31df71156f6dfd992080d3621da45a8734",
+          "version": "5.8.0"
+        }
+      },
+      {
+        "package": "Swifter",
+        "repositoryURL": "https://github.com/mattdonnelly/Swifter.git",
+        "state": {
+          "branch": null,
+          "revision": "50682ebe64e4c08f18957ccfd16888f035c20755",
+          "version": "2.5.0"
+        }
+      },
+      {
+        "package": "WWNetworking",
+        "repositoryURL": "https://github.com/William-Weng/WWNetworking.git",
+        "state": {
+          "branch": null,
+          "revision": "10a26e73771de147f9ef490b0028e44b6caf9ea6",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "WWPrint",
+        "repositoryURL": "https://github.com/William-Weng/WWPrint.git",
+        "state": {
+          "branch": null,
+          "revision": "c82d4cf343747b6dfcc5698991cfddc23c73ed04",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
