@@ -11,7 +11,6 @@ import AuthenticationServices
 extension WWSignInWith3rd {
     
     /// [AuthenticationServices Framework - iOS 13](https://developer.apple.com/documentation/authenticationservices)
-    @available(iOS 13.0, *)
     open class Apple: NSObject {
         
         public typealias SignInInformation = (credential: ASAuthorizationAppleIDCredential?, state: ASAuthorizationAppleIDProvider.CredentialState)
@@ -24,7 +23,6 @@ extension WWSignInWith3rd {
 }
 
 // MARK: - ASAuthorizationControllerDelegate / ASAuthorizationControllerPresentationContextProviding
-@available(iOS 13.0, *)
 extension WWSignInWith3rd.Apple: ASAuthorizationControllerDelegate, ASAuthorizationControllerPresentationContextProviding {
     
     public func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) { loginInformation(with: controller, authorization: authorization) }
@@ -33,14 +31,13 @@ extension WWSignInWith3rd.Apple: ASAuthorizationControllerDelegate, ASAuthorizat
 }
 
 // MARK: - WWSignInWith3rd.Apple (public class function)
-@available(iOS 13.0, *)
-extension WWSignInWith3rd.Apple {
+public extension WWSignInWith3rd.Apple {
     
     /// [彈出Apple登入視窗 - 要加入.entitlements](https://developer.apple.com/documentation/authenticationservices/implementing_user_authentication_with_sign_in_with_apple)
     /// - Parameters:
     ///   - scopes: 要取得的資料範圍 => [.fullName, .email]
     ///   - completion: [完成後取得ASAuthorizationAppleIDCredential](https://www.bnext.com.tw/article/53765/what-is-the-meaning-of-sign-in-with-apple)
-    public func login(for scopes: [ASAuthorization.Scope] = [.fullName, .email], completion: ((Result<SignInInformation, Error>) -> Void)?) {
+    func login(for scopes: [ASAuthorization.Scope] = [.fullName, .email], completion: ((Result<SignInInformation, Error>) -> Void)?) {
         
         let authorizationController = ASAuthorizationController._build(with: scopes, delegate: self)
         authorizationController.performRequests()
@@ -49,7 +46,7 @@ extension WWSignInWith3rd.Apple {
     }
     
     /// Apple登入 -> 沒有登出功能 => 要自己去設定
-    public func logout() { fatalError("設定 -> Apple ID -> 密碼與安全性 -> 使用 Apple ID的 App") }
+    func logout() { fatalError("設定 -> Apple ID -> 密碼與安全性 -> 使用 Apple ID的 App") }
     
     /// [產生SignInWithApple的原生按鈕 / 按鈕按下後的功能](https://medium.com/@tuzaiz/如何整合-sign-in-with-apple-到自己的-ios-app-上-ios-backend-e64d9de15410)
     /// - Parameters:
@@ -58,20 +55,19 @@ extension WWSignInWith3rd.Apple {
     ///   - type: ASAuthorizationAppleIDButton.ButtonType
     ///   - style: ASAuthorizationAppleIDButton.Style
     /// - Returns: ASAuthorizationAppleIDButton
-    public func loginButton(with frame: CGRect = .zero, cornerRadius: CGFloat = 10, type: ASAuthorizationAppleIDButton.ButtonType = .default, style: ASAuthorizationAppleIDButton.Style = .black) -> ASAuthorizationAppleIDButton {
+    func loginButton(with frame: CGRect = .zero, cornerRadius: CGFloat = 10, type: ASAuthorizationAppleIDButton.ButtonType = .default, style: ASAuthorizationAppleIDButton.Style = .black) -> ASAuthorizationAppleIDButton {
         return ASAuthorizationAppleIDButton._build(with: frame, cornerRadius: cornerRadius, type: type, style: style)
     }
 }
 
-// MARK: - WWSignInWith3rd.Apple (private class function)
-@available(iOS 13.0, *)
-extension WWSignInWith3rd.Apple {
+// MARK: - WWSignInWith3rd.Apple (private function)
+private extension WWSignInWith3rd.Apple {
     
     /// 取得Login後的相關資訊 (確認 / 取消)
     /// - Parameters:
     ///   - controller: ASAuthorizationController
     ///   - authorization: ASAuthorization
-    private func loginInformation(with controller: ASAuthorizationController, authorization: ASAuthorization) {
+    func loginInformation(with controller: ASAuthorizationController, authorization: ASAuthorization) {
         
         guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential,
               let completionBlock = completionBlock

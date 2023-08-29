@@ -1,0 +1,43 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "LineSDK",
+        "repositoryURL": "https://github.com/line/line-sdk-ios-swift.git",
+        "state": {
+          "branch": null,
+          "revision": "9a4e8aa06979f4e8af32e22b2fbb1af143b6dcae",
+          "version": "5.10.0"
+        }
+      },
+      {
+        "package": "Swifter",
+        "repositoryURL": "https://github.com/mattdonnelly/Swifter.git",
+        "state": {
+          "branch": null,
+          "revision": "50682ebe64e4c08f18957ccfd16888f035c20755",
+          "version": "2.5.0"
+        }
+      },
+      {
+        "package": "WWNetworking",
+        "repositoryURL": "https://github.com/William-Weng/WWNetworking.git",
+        "state": {
+          "branch": null,
+          "revision": "ae2c095a586156dc8af250f720a51d9ccdb4f177",
+          "version": "1.1.4"
+        }
+      },
+      {
+        "package": "WWPrint",
+        "repositoryURL": "https://github.com/William-Weng/WWPrint.git",
+        "state": {
+          "branch": null,
+          "revision": "6b70fabaa1dbeac95b224384819e231a1220900a",
+          "version": "1.2.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
